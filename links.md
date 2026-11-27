@@ -10,15 +10,8 @@ const links = [
     desc: '本站使用的静态站点框架',
     url: 'https://vitepress.dev',
     avatar: '/favicon.svg'
-  },
-  {
-    name: 'GitHub',
-    desc: '全球最大同性交友平台（误）',
-    url: 'https://github.com',
-    avatar: '/favicon.svg'
   }
-  // 在这里继续添加友链，格式如下：
-  // { name: '某某的博客', desc: '一句话介绍', url: 'https://xxx', avatar: '头像图片地址' }
+
 ]
 </script>
 
