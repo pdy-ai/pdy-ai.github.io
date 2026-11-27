@@ -4,14 +4,14 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   lang: 'zh-CN',
   title: '彭代颜的博客',
-  description: '彭代颜的个人博客 —— 记录、思考、分享。技术随笔与生活杂谈的混合空间。',
+  description: '彭代颜的个人博客：记录、思考、分享。技术随笔与生活杂谈的混合空间。',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     ['meta', { name: 'author', content: '彭代颜' }]
   ],
 
-  // 默认深色模式，用户仍可手动切换
-  appearance: 'dark',
+  // 默认浅色（暖纸阅读场景），用户仍可手动切换深色
+  appearance: 'light',
 
   ignoreDeadLinks: false,
 

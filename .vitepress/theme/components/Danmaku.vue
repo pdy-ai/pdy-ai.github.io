@@ -29,9 +29,13 @@ const SENTENCES = [
 ]
 // ================================================
 
+// 颜色走主题变量：大部分墨色，少量朱砂
 const COLORS = [
-  '#a855f7', '#22d3ee', '#f472b6', '#facc15',
-  '#34d399', '#60a5fa', '#c084fc', '#f87171'
+  'var(--vp-c-text-2)',
+  'var(--vp-c-text-2)',
+  'var(--vp-c-text-2)',
+  'var(--vp-c-text-3)',
+  'var(--vp-c-brand-1)'
 ]
 
 interface Danmaku {
@@ -114,8 +118,9 @@ onUnmounted(() => {
   position: absolute;
   left: 100vw;
   white-space: nowrap;
-  font-weight: 600;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  font-family: var(--ed-serif, Georgia, serif);
+  font-style: italic;
+  font-weight: 500;
   animation: danmaku-fly linear forwards;
   will-change: transform;
 }
@@ -133,6 +138,11 @@ onUnmounted(() => {
   }
   .danmaku-item {
     font-size: 12px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .danmaku-layer {
+    display: none;
   }
 }
 </style>

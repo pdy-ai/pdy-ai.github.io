@@ -32,7 +32,7 @@ const shownPosts = computed(() =>
 )
 </script>
 
-# 🏷️ 标签
+# 标签
 
 <div class="tag-cloud">
   <button

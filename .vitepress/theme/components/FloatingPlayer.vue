@@ -104,7 +104,7 @@ function onTime() {
             max="100"
             :value="progress"
             :style="{
-              background: `linear-gradient(to right, #a855f7 0%, #22d3ee ${progress}%, rgba(255,255,255,0.15) ${progress}%)`
+              background: `linear-gradient(to right, var(--vp-c-brand-1) ${progress}%, var(--vp-c-divider) ${progress}%)`
             }"
             @input="seek"
             aria-label="播放进度"
@@ -138,17 +138,18 @@ function onTime() {
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  background: linear-gradient(135deg, #a855f7, #22d3ee);
-  box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+  background: var(--vp-c-text-1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: var(--vp-c-bg);
   font-size: 20px;
-  transition: transform 0.25s ease;
+  transition: transform 0.25s var(--ed-ease, ease), background-color 0.25s var(--ed-ease, ease);
 }
 .mp-disc:hover {
-  transform: scale(1.08);
+  background: var(--vp-c-brand-1);
+  transform: scale(1.06);
 }
 .mp-note {
   display: inline-block;
@@ -164,13 +165,11 @@ function onTime() {
 .mp-panel {
   width: 230px;
   padding: 14px 16px;
-  border-radius: 16px;
-  background: rgba(20, 20, 30, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(168, 85, 247, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  color: #eee;
+  border-radius: 12px;
+  background: var(--vp-c-bg-elv);
+  border: 1px solid var(--vp-c-divider);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  color: var(--vp-c-text-1);
   margin-bottom: 4px;
 }
 .mp-info {
@@ -185,7 +184,7 @@ function onTime() {
 }
 .mp-artist {
   font-size: 0.78em;
-  color: #aaa;
+  color: var(--vp-c-text-3);
 }
 .mp-progress input[type='range'] {
   width: 100%;
@@ -202,8 +201,7 @@ function onTime() {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 0 6px rgba(168, 85, 247, 0.8);
+  background: var(--vp-c-brand-1);
 }
 .mp-controls {
   display: flex;
@@ -214,14 +212,14 @@ function onTime() {
 .mp-controls button {
   background: none;
   border: none;
-  color: #eee;
+  color: var(--vp-c-text-2);
   font-size: 15px;
   cursor: pointer;
   transition: color 0.2s, transform 0.2s;
 }
 .mp-controls button:hover {
-  color: #a855f7;
-  transform: scale(1.15);
+  color: var(--vp-c-brand-1);
+  transform: scale(1.1);
 }
 .mp-controls .mp-play {
   font-size: 20px;

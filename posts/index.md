@@ -7,7 +7,7 @@ title: 文章
 import { data as posts } from '../posts.data'
 </script>
 
-# 📚 全部文章
+# 全部文章
 
 共 {{ posts.length }} 篇
 

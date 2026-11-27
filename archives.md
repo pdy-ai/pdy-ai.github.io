@@ -18,7 +18,7 @@ const byYear = computed(() => {
 })
 </script>
 
-# 🗂️ 归档
+# 归档
 
 共 {{ posts.length }} 篇文章，按时间倒序排列。
 

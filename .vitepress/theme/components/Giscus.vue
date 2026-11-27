@@ -69,7 +69,7 @@ watch(
   <div class="comments-wrapper">
     <div v-if="configured" ref="container"></div>
     <div v-else class="comments-placeholder">
-      💬 评论区（Giscus）待配置<br />
+      评论区（Giscus）待配置<br />
       建好 GitHub 仓库并开启 Discussions 后，按 Giscus.vue 文件内注释填写 4 个配置项即可启用
     </div>
   </div>

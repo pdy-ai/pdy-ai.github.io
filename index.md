@@ -4,10 +4,7 @@ layout: home
 hero:
   name: 彭代颜的博客
   text: 记录、思考、分享
-  tagline: 技术 × 生活的混合实验场 —— 写代码，也写生活
-  image:
-    src: /hero.svg
-    alt: 彭代颜的博客
+  tagline: 写代码，也写生活。技术随笔与生活杂谈的混合空间。
   actions:
     - theme: brand
       text: 开始阅读
@@ -23,9 +20,12 @@ import { data as posts } from './posts.data'
 const latest = posts.slice(0, 5)
 </script>
 
-<div style="padding-top: 24px;">
+<div class="home-posts">
 
-## 📝 最新文章
+<div class="hp-header">
+  <h2 class="hp-heading">最新文章</h2>
+  <a class="hp-more" href="/posts/">全部文章</a>
+</div>
 
 <ul class="latest-posts">
   <li v-for="post in latest" :key="post.url">
@@ -34,15 +34,4 @@ const latest = posts.slice(0, 5)
   </li>
 </ul>
 
-<p style="margin-top: 12px;">
-  <a href="/posts/" class="view-all">查看全部文章 →</a>
-</p>
-
 </div>
-
-<style>
-.view-all {
-  color: var(--vp-c-brand-1);
-  font-weight: 500;
-}
-</style>
