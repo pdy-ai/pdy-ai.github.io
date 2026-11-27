@@ -1,0 +1,336 @@
+/* ============================================================
+   彭代颜的博客 —— 现代科技风自定义样式
+   电光紫 (#a855f7) × 青色 (#22d3ee) 渐变主视觉
+   ============================================================ */
+
+:root {
+  /* 品牌色：电光紫 */
+  --vp-c-brand-1: #a855f7;
+  --vp-c-brand-2: #b672f9;
+  --vp-c-brand-3: #8b3ce0;
+  --vp-c-brand-soft: rgba(168, 85, 247, 0.14);
+
+  /* 首页 Hero 渐变标题 */
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(120deg, #a855f7 20%, #22d3ee 90%);
+
+  /* 按钮渐变 */
+  --vp-button-brand-bg: linear-gradient(120deg, #a855f7, #7c3aed);
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: #fff;
+  --vp-button-brand-hover-bg: linear-gradient(120deg, #b672f9, #8b5cf6);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: #fff;
+  --vp-button-brand-active-bg: linear-gradient(120deg, #8b3ce0, #6d28d9);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: #fff;
+
+  /* Hero 图柔和光晕 */
+  --vp-home-hero-image-background-image: linear-gradient(-45deg, #a855f7 30%, #22d3ee 70%);
+  --vp-home-hero-image-filter: blur(72px);
+}
+
+/* ---------- 首页 Hero ---------- */
+.VPHero .name {
+  background: linear-gradient(120deg, #a855f7 20%, #22d3ee 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent !important;
+}
+
+.VPHero .text {
+  background: linear-gradient(120deg, #22d3ee 20%, #a855f7 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hero 渐变描边头像容器 */
+.hero-image-frame {
+  border-radius: 24px;
+  padding: 3px;
+  background: linear-gradient(135deg, #a855f7, #22d3ee);
+  box-shadow: 0 12px 40px rgba(168, 85, 247, 0.35);
+  overflow: hidden;
+  transition: transform 0.35s ease;
+}
+.hero-image-frame:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* ---------- 首页最新文章列表 ---------- */
+.latest-posts {
+  margin-top: 0;
+  padding: 0;
+  list-style: none;
+}
+.latest-posts li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+.latest-posts li:hover {
+  background: var(--vp-c-brand-soft);
+}
+.latest-posts .lp-date {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--vp-c-text-3);
+  flex-shrink: 0;
+}
+.latest-posts .lp-title {
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+}
+.latest-posts li:hover .lp-title {
+  color: var(--vp-c-brand-1);
+}
+
+/* ---------- 文章列表页 ---------- */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.post-item {
+  padding: 20px 24px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+.post-item:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.15);
+}
+.post-item .pi-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 0.85em;
+  color: var(--vp-c-text-3);
+}
+.post-item .pi-title {
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 8px;
+}
+.post-item .pi-title:hover {
+  color: var(--vp-c-brand-1);
+}
+.post-item .pi-excerpt {
+  margin: 0;
+  color: var(--vp-c-text-2);
+  font-size: 0.95em;
+  line-height: 1.7;
+}
+.post-item .pi-excerpt :deep(p) {
+  margin: 0;
+}
+
+/* ---------- 标签 ---------- */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 16px 0 32px;
+}
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 999px;
+  font-size: 0.9em;
+  border: 1px solid var(--vp-c-divider);
+  color: var(--vp-c-text-2);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+.tag-chip:hover {
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+}
+.tag-chip.active {
+  background: var(--vp-c-brand-soft);
+  border-color: var(--vp-c-brand-1);
+  color: var(--vp-c-brand-1);
+  font-weight: 600;
+}
+.tag-count {
+  font-size: 0.8em;
+  opacity: 0.7;
+}
+.tag-group {
+  margin-bottom: 28px;
+}
+.tag-group-title {
+  font-size: 1.05em;
+  font-weight: 700;
+  color: var(--vp-c-brand-1);
+  margin-bottom: 12px;
+}
+
+/* ---------- 归档时间线 ---------- */
+.archive-year {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 36px 0 16px;
+}
+.archive-year .ay-label {
+  font-size: 1.4em;
+  font-weight: 700;
+  background: linear-gradient(120deg, #a855f7, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.archive-year .ay-line {
+  flex: 1;
+  height: 1px;
+  background: var(--vp-c-divider);
+}
+.archive-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-left: 2px solid var(--vp-c-brand-soft);
+  padding-left: 24px;
+}
+.archive-list li {
+  position: relative;
+  padding: 8px 0 8px 6px;
+}
+.archive-list li::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 18px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vp-c-brand-1);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.6);
+}
+.archive-list .al-date {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--vp-c-text-3);
+  margin-right: 14px;
+}
+.archive-list .al-title {
+  color: var(--vp-c-text-1);
+  font-weight: 500;
+}
+.archive-list .al-title:hover {
+  color: var(--vp-c-brand-1);
+}
+
+/* ---------- 友链卡片墙 ---------- */
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.link-card {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 18px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 14px;
+  color: inherit;
+  transition: all 0.25s ease;
+}
+.link-card:hover {
+  border-color: var(--vp-c-brand-1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(168, 85, 247, 0.15);
+}
+.link-card .lc-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.link-card .lc-name {
+  font-weight: 600;
+  color: var(--vp-c-text-1);
+  margin-bottom: 4px;
+}
+.link-card .lc-desc {
+  font-size: 0.85em;
+  color: var(--vp-c-text-3);
+}
+
+/* ---------- Giscus 评论 ---------- */
+.comments-wrapper {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px dashed var(--vp-c-divider);
+}
+.comments-placeholder {
+  padding: 28px;
+  border: 1px dashed var(--vp-c-divider);
+  border-radius: 12px;
+  text-align: center;
+  color: var(--vp-c-text-3);
+  font-size: 0.9em;
+  line-height: 1.8;
+}
+
+/* ---------- 移动端适配 ---------- */
+@media (max-width: 640px) {
+  .post-item {
+    padding: 16px;
+  }
+  .post-item .pi-title {
+    font-size: 1.05em;
+  }
+  .archive-year .ay-label {
+    font-size: 1.2em;
+  }
+  .archive-list {
+    padding-left: 16px;
+  }
+  .archive-list li::before {
+    left: -21px;
+  }
+  .links-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- 细节打磨 ---------- */
+/* 文章标题渐变 hover */
+.vp-doc h1 {
+  letter-spacing: -0.02em;
+}
+/* 代码块圆角加大 */
+.vp-doc div[class*='language-'] {
+  border-radius: 12px;
+}
+/* 滚动条美化 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--vp-c-divider);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vp-c-brand-1);
+}
