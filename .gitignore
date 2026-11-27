@@ -3,3 +3,6 @@ node_modules
 .vitepress/dist
 *.log
 .DS_Store
+
+# 本地可视化管理工具（不需要部署）
+admin/

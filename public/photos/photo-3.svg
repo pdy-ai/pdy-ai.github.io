@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#0ea5e9"/><stop offset="100%" stop-color="#22d3ee"/>
+  </linearGradient></defs>
+  <rect width="400" height="300" fill="url(#g)"/>
+  <circle cx="30" cy="210" r="40" fill="#ffffff" opacity="0.15"/>
+  <circle cx="265" cy="105" r="25" fill="#ffffff" opacity="0.2"/>
+  <text x="200" y="155" font-family="sans-serif" font-size="22" fill="#ffffff" opacity="0.85" text-anchor="middle">海与天</text>
+  <text x="200" y="185" font-family="sans-serif" font-size="12" fill="#ffffff" opacity="0.6" text-anchor="middle">占位图 · 替换为真实照片</text>
+</svg>

@@ -22,6 +22,8 @@ export default defineConfig({
       { text: '文章', link: '/posts/' },
       { text: '标签', link: '/tags' },
       { text: '归档', link: '/archives' },
+      { text: '相册', link: '/gallery' },
+      { text: '留言板', link: '/messages' },
       { text: '友链', link: '/links' },
       { text: '关于', link: '/about' }
     ],

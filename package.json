@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vitepress dev",
     "build": "vitepress build",
-    "preview": "vitepress preview"
+    "preview": "vitepress preview",
+    "admin": "node admin/server.mjs"
   },
   "devDependencies": {
     "vitepress": "^1.6.3",
