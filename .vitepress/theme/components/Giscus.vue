@@ -11,11 +11,11 @@
 import { onMounted, ref, watch } from 'vue'
 import { useRoute, useData } from 'vitepress'
 
-// ================== GISCUS 配置（待填写） ==================
-const GISCUS_REPO = ''              // 例: 'pdy-ai/blog'
-const GISCUS_REPO_ID = ''           // 例: 'R_kgDOxxxxxxx'
+// ================== GISCUS 配置（已填写 ✅） ==================
+const GISCUS_REPO = 'pdy-ai/pdy-ai.github.io'
+const GISCUS_REPO_ID = 'R_kgDOV90rrQ'
 const GISCUS_CATEGORY = 'Announcements'
-const GISCUS_CATEGORY_ID = ''       // 例: 'DIC_kwDOxxxxxxx'
+const GISCUS_CATEGORY_ID = 'DIC_kwDOV90rrc4DMFHR'
 // ==========================================================
 
 const route = useRoute()
@@ -40,7 +40,7 @@ function mountGiscus() {
     'data-strict': '0',
     'data-reactions-enabled': '1',
     'data-emit-metadata': '0',
-    'data-input-position': 'top',
+    'data-input-position': 'bottom',
     'data-theme': isDark.value ? 'dark' : 'light',
     'data-lang': 'zh-CN',
     'data-loading': 'lazy'
