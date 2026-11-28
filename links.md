@@ -9,7 +9,7 @@ const links = [
     name: 'VitePress 官方文档',
     desc: '本站使用的静态站点框架',
     url: 'https://vitepress.dev',
-    avatar: '/favicon.svg'
+    avatar: 'https://vitepress.dev/vitepress-logo-large.svg'
   }
 ]
 </script>
