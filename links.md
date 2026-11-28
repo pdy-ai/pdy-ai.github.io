@@ -22,7 +22,6 @@ const links = [
 站点名称：彭代颜的博客
 站点地址：https://pengdaiyan.top
 一句话介绍：技术 × 生活的混合实验场
-头像/Logo：https://pengdaiyan.top/favicon.svg
 ```
 
 <div class="links-grid">
