@@ -20,7 +20,7 @@ layout: page
 ## 找到我
 
 - GitHub：[@pdy-ai](https://github.com/pdy-ai)
-- 邮箱：`待补充`（可替换为你的邮箱）
+- 邮箱：`1084026111@qq.com`
 
 ## 交流
 

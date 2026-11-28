@@ -5,12 +5,7 @@ title: 相册
 
 <script setup>
 const photos = [
-  { src: '/photos/photo-1.svg', title: '光影之间', desc: '占位图 · 替换为真实照片' },
-  { src: '/photos/photo-2.svg', title: '暮色', desc: '占位图 · 替换为真实照片' },
-  { src: '/photos/photo-3.svg', title: '海与天', desc: '占位图 · 替换为真实照片' },
-  { src: '/photos/photo-4.svg', title: '日落', desc: '占位图 · 替换为真实照片' },
-  { src: '/photos/photo-5.svg', title: '绿野', desc: '占位图 · 替换为真实照片' },
-  { src: '/photos/photo-6.svg', title: '梦境', desc: '占位图 · 替换为真实照片' }
+  { src: '/photos/_20260921004215_31_5-mwzrx5mc.jpg', title: '光遇启动', desc: '' }
 ]
 </script>
 
