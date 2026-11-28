@@ -113,6 +113,9 @@ onUnmounted(() => {
   pointer-events: none;
   overflow: hidden;
   z-index: 5;
+  /* 底部渐隐，避免弹幕与下方正文标题相互干扰 */
+  -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 96%);
+  mask-image: linear-gradient(to bottom, #000 55%, transparent 96%);
 }
 .danmaku-item {
   position: absolute;
