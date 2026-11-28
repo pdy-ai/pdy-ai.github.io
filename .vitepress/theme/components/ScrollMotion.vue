@@ -24,6 +24,8 @@ const route = useRoute()
 let ctx: gsap.Context | null = null
 let mm: gsap.MatchMedia | null = null
 let refreshTimer: ReturnType<typeof setTimeout> | null = null
+let pointerHandler: ((e: PointerEvent) => void) | null = null
+let pointerRaf = 0
 let disposed = false
 
 /* 等字体 / 图片落地后修正触发位置 */
@@ -36,10 +38,40 @@ function scheduleRefresh(delay = 160) {
 }
 
 function teardown() {
+  clearPointerGlow()
   mm?.revert()
   mm = null
   ctx?.revert()
   ctx = null
+}
+
+function clearPointerGlow() {
+  if (pointerHandler) window.removeEventListener('pointermove', pointerHandler)
+  pointerHandler = null
+  if (pointerRaf) cancelAnimationFrame(pointerRaf)
+  pointerRaf = 0
+}
+
+/* Hero 跟随指针的冷光，仅桌面精确指针 + 允许动效时启用 */
+function heroPointerGlow() {
+  const hero = document.querySelector<HTMLElement>('.VPHero')
+  if (!hero) return
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return
+  if (!window.matchMedia(MOTION_OK).matches) return
+
+  let latest: { x: number; y: number } | null = null
+  pointerHandler = (e: PointerEvent) => {
+    const rect = hero.getBoundingClientRect()
+    latest = { x: e.clientX - rect.left, y: e.clientY - rect.top }
+    if (pointerRaf) return
+    pointerRaf = requestAnimationFrame(() => {
+      pointerRaf = 0
+      if (!latest) return
+      hero.style.setProperty('--mx', `${latest.x}px`)
+      hero.style.setProperty('--my', `${latest.y}px`)
+    })
+  }
+  window.addEventListener('pointermove', pointerHandler, { passive: true })
 }
 
 /* ---------------- 首页 Hero：入场时间轴 + 滚动视差 ---------------- */
@@ -53,15 +85,24 @@ function heroIntro() {
   const tagline = hero.querySelector('.tagline')
   const actions = hero.querySelectorAll('.actions .action')
 
-  if (name) tl.from(name, { y: 32, opacity: 0, duration: 0.9 })
-  if (text) tl.from(text, { y: 24, opacity: 0, duration: 0.8 }, name ? '-=0.62' : 0)
-  if (tagline) tl.from(tagline, { y: 18, opacity: 0, duration: 0.7 }, text ? '-=0.52' : 0)
-  if (actions.length) tl.from(actions, { y: 14, opacity: 0, stagger: 0.1, duration: 0.6 }, '-=0.42')
+  // 标题像被扫描线「刷」出来：从左向右揭示
+  if (name)
+    tl.from(name, {
+      clipPath: 'inset(0 100% 0 0)',
+      y: 14,
+      opacity: 0,
+      duration: 1
+    })
+  if (text) tl.from(text, { y: 20, opacity: 0, duration: 0.75 }, name ? '-=0.55' : 0)
+  if (tagline) tl.from(tagline, { y: 14, opacity: 0, duration: 0.65 }, '-=0.45')
+  if (actions.length) tl.from(actions, { y: 12, opacity: 0, stagger: 0.1, duration: 0.55 }, '-=0.35')
+
+  heroPointerGlow()
 
   // 滚动时 Hero 缓慢上移并淡出，为下方索引让出视线
   gsap.to(hero.querySelector('.container') || hero, {
     y: 48,
-    opacity: 0.3,
+    opacity: 0.25,
     ease: 'none',
     scrollTrigger: {
       trigger: hero,

@@ -7,11 +7,13 @@ export default defineConfig({
   description: '彭代颜的个人博客：记录、思考、分享。技术随笔与生活杂谈的混合空间。',
   head: [
     ['link', { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
-    ['meta', { name: 'author', content: '彭代颜' }]
+    ['meta', { name: 'author', content: '彭代颜' }],
+    ['meta', { name: 'theme-color', content: '#05070f' }],
+    ['meta', { name: 'color-scheme', content: 'dark light' }]
   ],
 
-  // 默认浅色（暖纸阅读场景），用户仍可手动切换深色
-  appearance: 'light',
+  // 默认深色：深空底 + 霓虹青紫的科幻 HUD 场景，用户仍可切到浅色
+  appearance: 'dark',
 
   ignoreDeadLinks: false,
 

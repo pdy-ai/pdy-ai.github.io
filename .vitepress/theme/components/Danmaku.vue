@@ -29,13 +29,13 @@ const SENTENCES = [
 ]
 // ================================================
 
-// 颜色走主题变量：大部分墨色，少量朱砂
+// 颜色走主题变量：冷色数据流为主，青/紫偶尔点缀
 const COLORS = [
-  'var(--vp-c-text-2)',
-  'var(--vp-c-text-2)',
+  'var(--vp-c-text-3)',
   'var(--vp-c-text-2)',
   'var(--vp-c-text-3)',
-  'var(--vp-c-brand-1)'
+  'var(--sf-accent)',
+  'var(--sf-accent-2)'
 ]
 
 interface Danmaku {
@@ -60,9 +60,9 @@ function spawn() {
     text,
     color: COLORS[Math.floor(Math.random() * COLORS.length)],
     top: 8 + Math.random() * 80, // 百分比高度
-    duration: 9 + Math.random() * 8, // 9~17 秒飘过
-    size: 13 + Math.random() * 6,
-    opacity: 0.55 + Math.random() * 0.4
+    duration: 12 + Math.random() * 10, // 12~22 秒飘过（更慢的数据流）
+    size: 11 + Math.random() * 4,
+    opacity: 0.3 + Math.random() * 0.35
   })
   // 弹幕飘完后回收，防止 DOM 无限增长
   const id = seq - 1
@@ -76,7 +76,7 @@ onMounted(() => {
   if (route.path !== '/') return
   // 初始先撒 6 条，错开时间
   for (let i = 0; i < 6; i++) setTimeout(spawn, i * 1600)
-  timer = setInterval(spawn, 2600)
+  timer = setInterval(spawn, 3400)
 })
 
 onUnmounted(() => {
@@ -109,7 +109,7 @@ onUnmounted(() => {
   top: var(--vp-nav-height, 64px);
   left: 0;
   right: 0;
-  height: calc(60vh);
+  height: min(52vh, 460px);
   pointer-events: none;
   overflow: hidden;
   z-index: 5;
@@ -121,11 +121,16 @@ onUnmounted(() => {
   position: absolute;
   left: 100vw;
   white-space: nowrap;
-  font-family: var(--ed-serif, Georgia, serif);
-  font-style: italic;
+  font-family: var(--sf-mono, ui-monospace, monospace);
   font-weight: 500;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 12px currentColor;
   animation: danmaku-fly linear forwards;
   will-change: transform;
+}
+.danmaku-item::before {
+  content: '// ';
+  opacity: 0.45;
 }
 @keyframes danmaku-fly {
   from {
@@ -137,7 +142,7 @@ onUnmounted(() => {
 }
 @media (max-width: 640px) {
   .danmaku-layer {
-    height: 45vh;
+    height: 38vh;
   }
   .danmaku-item {
     font-size: 12px !important;

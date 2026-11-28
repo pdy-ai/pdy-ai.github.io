@@ -5,14 +5,15 @@ import Danmaku from './components/Danmaku.vue'
 import FloatingPlayer from './components/FloatingPlayer.vue'
 import ScrollMotion from './components/ScrollMotion.vue'
 import PostHeader from './components/PostHeader.vue'
+import SciFiHud from './components/SciFiHud.vue'
 import './custom.css'
 
 export default {
   extends: DefaultTheme,
   Layout() {
     return h(DefaultTheme.Layout, null, {
-      // 首页弹幕墙（组件内部判断只在 '/' 显示）+ 全站滚动动效层
-      'layout-top': () => [h(Danmaku), h(ScrollMotion)],
+      // 科幻 HUD 装饰层 + 首页弹幕墙 + 全站滚动动效层
+      'layout-top': () => [h(SciFiHud), h(Danmaku), h(ScrollMotion)],
       // 悬浮音乐播放器（全站）
       'layout-bottom': () => h(FloatingPlayer),
       // 文章页页头：标题 / 日期 / 标签 / 阅读时长
