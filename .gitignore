@@ -6,3 +6,6 @@ node_modules
 
 # 本地可视化管理工具（不需要部署）
 admin/
+
+# WorkBuddy 工作区内部数据，不入库
+.workbuddy/
